@@ -5,5 +5,5 @@ from neural_connector.statuses.base import Status
 
 __all__ = ["Executed",
            "NotExecuted",
-           "Executed",
+           "Executing",
            "Status"]

@@ -11,12 +11,14 @@ class Tasks:
             if isinstance(task.status, NotExecuted):
                 task.start_execution()
                 return task
+        return None
 
     def get_executed_task(self) -> Task | None:
         for task in self.__tasks:
             if isinstance(task.status, Executed):
                 self.__tasks.remove(task)
                 return task
+        return None
 
     def __getitem__(self, item: int) -> Task:
         for task in self.__tasks:
