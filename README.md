@@ -1,3 +1,5 @@
-<img src="logo.jpg" alt=""/>
+<img src="logo.png" width="30%" alt=""/>
 
-# Backend for attention App
+# Backend for Attention App
+
+Attention App - ppe controller on production
