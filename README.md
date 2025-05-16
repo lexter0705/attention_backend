@@ -1,4 +1,4 @@
-<img src="logo.png" width="30%" alt=""/>
+<img src="Logo.png" width="30%" alt=""/>
 
 # Backend for AttentionApp
 
