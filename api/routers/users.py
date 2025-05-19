@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from api.models.user import User
+from models import User
 
 router = APIRouter(prefix="/users")
 
