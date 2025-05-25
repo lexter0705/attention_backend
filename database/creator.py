@@ -1,16 +1,15 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Column, String, create_engine
+from sqlalchemy.orm import DeclarativeBase
 
 
 class Base(DeclarativeBase):
     pass
 
 
-class UsersTable(Base):
+class Users(Base):
     __tablename__ = 'users'
-    id: Mapped[int] = mapped_column(primary_key=True)
-    email: Mapped[str] = mapped_column(unique=True)
-    password: Mapped[str]
+    email = Column(String, primary_key=True, unique=True, nullable=False)
+    password = Column(String)
 
 
 def create_database(path: str):

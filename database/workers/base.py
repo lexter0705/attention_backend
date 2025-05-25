@@ -1,6 +1,6 @@
 from typing import Type
 
-from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqlalchemy import create_engine
 
 
@@ -9,12 +9,12 @@ class DatabaseWorker:
         database_url = "sqlite:///" + database_path
         engine = create_engine(database_url)
         self.__table = table
-        self.__connect = engine.connect()
+        self.__session = sessionmaker(bind=engine)
 
     @property
     def table(self):
         return self.__table
 
     @property
-    def connect(self):
-        return self.__connect
+    def session(self):
+        return self.__session()

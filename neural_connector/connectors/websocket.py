@@ -1,4 +1,6 @@
-from starlette.websockets import WebSocket
+import asyncio
+
+from fastapi import WebSocket
 
 from neural_connector.connectors.base import NeuralConnector
 from neural_connector.tasks.tasks import Tasks
@@ -16,3 +18,4 @@ class WebsocketConnector(NeuralConnector):
                 await websocket.send_json({"id": task.id, "bboxes": task.boxes})
             answer = await websocket.receive_json()
             self.tasks[answer["id"]].execute(answer["bboxes"])
+            await asyncio.sleep(1)

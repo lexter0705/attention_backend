@@ -20,13 +20,13 @@ class Tasks:
                 return task
         return None
 
+    def add_task(self, task: Task):
+        if not isinstance(task, Task):
+            raise TypeError()
+        self.__tasks.append(task)
+
     def __getitem__(self, item: int) -> Task:
         for task in self.__tasks:
             if task.id == item:
                 return task
         raise KeyError
-
-    def add_task(self, task: Task):
-        if not isinstance(task, Task):
-            raise TypeError()
-        self.__tasks.append(task)
