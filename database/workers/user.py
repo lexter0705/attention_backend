@@ -12,3 +12,6 @@ class UsersWorker(DatabaseWorker):
 
     def is_user(self, user: Users) -> bool:
         return len(self.session.query(Users).filter(Users.email == user.email).all()) != 0
+
+    def get_user_hashed_password(self, user: Users) -> str:
+        return self.session.query(Users).filter(Users.email == user.email).first().password
