@@ -7,10 +7,9 @@ class Tasks:
         self.__tasks: list[Task] = []
 
     def get_not_executed_task(self) -> Task | None:
-        for task in self.__tasks:
-            if isinstance(task.status, NotExecuted):
-                task.start_execution()
-                return task
+        if isinstance(self.__tasks[-1].status, NotExecuted):
+            self.__tasks[-1].start_execution()
+            return self.__tasks[-1]
         return None
 
     def get_executed_task(self) -> Task | None:

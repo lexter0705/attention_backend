@@ -9,7 +9,7 @@ class DatabaseWorker:
         database_url = "sqlite:///" + database_path
         engine = create_engine(database_url)
         self.__table = table
-        self.__session = sessionmaker(bind=engine)
+        self.__session = sessionmaker(bind=engine)()
 
     @property
     def table(self):
@@ -17,4 +17,4 @@ class DatabaseWorker:
 
     @property
     def session(self):
-        return self.__session()
+        return self.__session

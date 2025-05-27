@@ -2,7 +2,7 @@ from neural_connector.statuses import Status, NotExecuted, Executed, Executing
 
 
 class Task:
-    def __init__(self, image: list, task_id: int, camera_id: int):
+    def __init__(self, image: bytes, task_id: int, camera_id: int):
         self.__id = task_id
         self.__image = image
         self.__boxes = []
@@ -17,7 +17,7 @@ class Task:
         self.__status = Executed()
 
     @property
-    def image(self) -> list:
+    def image(self) -> bytes:
         return self.__image
 
     @property

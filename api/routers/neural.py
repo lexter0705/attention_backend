@@ -22,8 +22,8 @@ async def connect_user(websocket: WebSocket):
     await websocket.accept()
     while True:
         data = await websocket.receive_json()
-        task = Task(data["image"], id_creator.id, data["camera_id"])
+        task = Task(data["image"], id_creator.id, 0)
         tasks.add_task(task)
         executed_task = tasks.get_executed_task()
         if executed_task is not None:
-            await websocket.send_json({"bboxes": executed_task.boxes, "camera_id": executed_task.camera_id})
+            await websocket.send_json(executed_task.boxes["boxes"])
