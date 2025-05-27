@@ -20,6 +20,7 @@ class WebsocketConnector(NeuralConnector):
             if task is not None and (last_task is None or isinstance(last_task.status, Executed)):
                 last_task = task
                 await websocket.send_json({"id": task.id, "image": str(task.image)})
+            await websocket.send_text("is_connected")
             answer = await websocket.receive_json()
             self.tasks[answer["id"]].execute(answer)
             await asyncio.sleep(1)
