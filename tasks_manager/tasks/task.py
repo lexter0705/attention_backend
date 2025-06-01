@@ -1,18 +1,18 @@
-from neural_connector.statuses import Status, NotExecuted, Executed, Executing
+from tasks_manager.statuses import Status, NotExecuted, Executed, Executing
 
 
 class Task:
     def __init__(self, image: bytes, task_id: int, camera_id: int):
         self.__id = task_id
         self.__image = image
-        self.__boxes = []
+        self.__boxes = {}
         self.__camera_id = camera_id
         self.__status: Status = NotExecuted()
 
     def start_execution(self):
         self.__status = Executing()
 
-    def execute(self, boxes: list):
+    def execute(self, boxes: dict):
         self.__boxes = boxes
         self.__status = Executed()
 
@@ -21,7 +21,7 @@ class Task:
         return self.__image
 
     @property
-    def boxes(self) -> list:
+    def boxes(self) -> dict:
         return self.__boxes
 
     @property

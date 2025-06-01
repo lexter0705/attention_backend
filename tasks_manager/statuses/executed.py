@@ -1,4 +1,4 @@
-from neural_connector.statuses.base import Status
+from tasks_manager.statuses.base import Status
 
 
 class Executed(Status):
