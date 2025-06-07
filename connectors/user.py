@@ -1,5 +1,6 @@
 from connectors.base import WebsocketConnector
 from tasks_manager import IdCreator, TasksManager
+from tasks_manager.statuses import Executed
 from tasks_manager.tasks import Task
 
 
@@ -8,11 +9,15 @@ class UserConnector(WebsocketConnector):
         super().__init__()
         self.__id_creator = id_creator
         self.__task_manager = task_manager
+        self.__last_task: Task | None = None
 
     async def update_socket(self):
-        data = await self.websocket.receive_json()
-        task = Task(data["image"], self.__id_creator.id, 0)
-        await self.__task_manager.add_task(task)
-        executed_task = self.__task_manager.get_executed_task()
-        if executed_task is not None:
-            await self.websocket.send_json(executed_task.boxes["boxes"])
+        if self.__last_task is None:
+            print(1)
+            data = await self.websocket.receive_json()
+            task = Task(data["image"], self.__id_creator.id, 0)
+            self.__last_task = await self.__task_manager.send_task(task)
+        elif isinstance(self.__last_task.status, Executed):
+            print("sended")
+            await self.websocket.send_json(self.__last_task.boxes["boxes"])
+            self.__last_task = None

@@ -13,7 +13,7 @@ class WebsocketConnector:
         await self.on_start()
         while True:
             await self.update_socket()
-            await asyncio.sleep(1)
+            await asyncio.sleep(0.1)
 
     async def on_start(self):
         pass

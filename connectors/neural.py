@@ -11,16 +11,18 @@ class NeuralConnector(WebsocketConnector):
         self.__last_task: Task | None = None
 
     async def update_socket(self):
-        await self.websocket.send_text("is_connected")
         answer = await self.websocket.receive_json()
+        print(answer)
+        print(answer is not None and self.__last_task is not None)
         if answer is not None and self.__last_task is not None:
+            print("executed")
             self.__last_task.execute(answer)
         await asyncio.sleep(1)
 
     async def send_task(self, task: Task):
         if self.is_have_task():
             raise Exception("NeuralConnector every have task")
-        self.__last_task = self.__last_task
+        self.__last_task = task
         await self.websocket.send_json({"id": task.id, "image": str(task.image)})
 
     def is_have_task(self):
