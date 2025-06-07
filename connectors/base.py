@@ -4,7 +4,8 @@ from fastapi import WebSocket
 
 
 class WebsocketConnector:
-    def __init__(self):
+    def __init__(self, sleep_time = 0.01):
+        self.__sleep_time = sleep_time
         self.__websocket: WebSocket | None = None
 
     async def connect(self, websocket: WebSocket) -> None:
@@ -13,7 +14,7 @@ class WebsocketConnector:
         await self.on_start()
         while True:
             await self.update_socket()
-            await asyncio.sleep(0.1)
+            await asyncio.sleep(self.__sleep_time)
 
     async def on_start(self):
         pass

@@ -1,5 +1,5 @@
 from connectors.neural import NeuralConnector
-from tasks_manager.tasks.task import Task
+from tasks_manager.task import Task
 
 
 class TasksManager:
