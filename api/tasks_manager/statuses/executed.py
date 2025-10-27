@@ -1,4 +1,4 @@
-from tasks_manager.statuses.base import Status
+from api.tasks_manager.statuses.base import Status
 
 
 class Executed(Status):

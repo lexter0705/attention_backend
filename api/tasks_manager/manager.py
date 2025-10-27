@@ -1,5 +1,5 @@
-from connectors.neural import NeuralConnector
-from tasks_manager.task import Task
+from api.connectors.neural import NeuralConnector
+from api.tasks_manager.task import Task
 
 
 class TasksManager:
@@ -8,9 +8,11 @@ class TasksManager:
 
     async def send_task(self, task: Task) -> Task | None:
         for connector in self.__connectors:
-            if not connector.is_have_task():
+            if connector.is_have_task():
                 await connector.send_task(task)
-                return task
+                self.__connectors.remove(connector)
+                self.__connectors.append(connector)
+            return task
 
     def add_connector(self, connector: NeuralConnector):
         if not isinstance(connector, NeuralConnector):

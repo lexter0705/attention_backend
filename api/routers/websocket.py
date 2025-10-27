@@ -1,7 +1,7 @@
 from fastapi import APIRouter, WebSocket
 
-from connectors import NeuralConnector, UserConnector
-from tasks_manager import IdCreator, TasksManager
+from api.connectors import NeuralConnector, UserConnector
+from api.tasks_manager import IdCreator, TasksManager
 
 router = APIRouter(prefix="/websocket")
 

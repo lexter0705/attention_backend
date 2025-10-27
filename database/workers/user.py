@@ -1,4 +1,4 @@
-from database.creator import Users
+from database.database import Users
 from database.workers.base import DatabaseWorker
 
 

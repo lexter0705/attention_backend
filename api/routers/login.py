@@ -4,7 +4,7 @@ from api.cryptor import Cryptor
 from config import ConfigReader
 from database import Users
 from database.workers.user import UsersWorker
-from models import User
+from api.models import User
 
 router = APIRouter(prefix="/users")
 

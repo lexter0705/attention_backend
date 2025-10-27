@@ -1,4 +1,4 @@
-from tasks_manager.statuses import Status, NotExecuted, Executed, Executing
+from api.tasks_manager.statuses import Status, NotExecuted, Executed, Executing
 
 
 class Task:

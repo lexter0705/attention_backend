@@ -1,3 +1,8 @@
 {
-  "database_path": "database/database.sqlite"
+  "database_path": "database/database.sqlite",
+  "ids": {
+    "need_ids": [1, 2, 3, 4],
+    "desirable_ids": [5],
+    "main_id": [0]
+  }
 }

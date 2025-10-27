@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from api.routers.users import router as user_router
-from api.routers.neural import router as neural_router
+from api.routers.login import router as user_router
+from api.routers.websocket import router as neural_router
 
 
 def include_routers(api: FastAPI):

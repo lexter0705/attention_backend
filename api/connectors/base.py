@@ -4,7 +4,7 @@ from fastapi import WebSocket
 
 
 class WebsocketConnector:
-    def __init__(self, sleep_time = 0.01):
+    def __init__(self, sleep_time: float = 0.01):
         self.__sleep_time = sleep_time
         self.__websocket: WebSocket | None = None
 
@@ -24,6 +24,4 @@ class WebsocketConnector:
 
     @property
     def websocket(self) -> WebSocket:
-        if self.__websocket is None:
-            raise Exception('Websocket not connected')
         return self.__websocket

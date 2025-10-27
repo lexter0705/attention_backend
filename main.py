@@ -5,7 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from api import include_routers
 from config import ConfigReader
-from database.creator import create_database
+from database.database import create_database
 
 app = FastAPI()
 

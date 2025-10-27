@@ -1,7 +1,7 @@
-from connectors.base import WebsocketConnector
-from tasks_manager import IdCreator, TasksManager
-from tasks_manager.statuses import Executed
-from tasks_manager import Task
+from api.connectors.base import WebsocketConnector
+from api.tasks_manager import IdCreator, TasksManager
+from api.tasks_manager.statuses import Executed
+from api.tasks_manager import Task
 
 
 class UserConnector(WebsocketConnector):
