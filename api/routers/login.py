@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 
 from api.cryptor import Cryptor
+from api.models import User
 from config import ConfigReader
 from database import Users
 from database.workers.user import UsersWorker
-from api.models import User
 
 router = APIRouter(prefix="/users")
 
