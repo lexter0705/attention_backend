@@ -1,7 +1,7 @@
 {
   "database_url": "database/database.sqlite",
   "labels": {
-    "error_labels": [""],
+    "error_labels": ["NO-Hardhat", "NO-Safety Vest"],
     "warning_labels": [""]
   }
 }

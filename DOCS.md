@@ -5,11 +5,19 @@
 url: /websocket/connect_user
 
 ### From user
-##### Image
+##### Camera
 ```json
    {
+    "type": "url",
     "camera_id": int
-    "image": base64
+    "camera_url": str
+   }
+```
+##### Camera status
+```json
+   {
+    "type": "status",
+    "status": "active" or "not_active"
    }
 ``` 
 ### To User

@@ -10,4 +10,6 @@ class Label(BaseModel):
 
 
 class Labels(BaseModel):
+    type: str = "labels"
+    camera_id: int
     boxes: list[Label]
