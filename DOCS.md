@@ -8,6 +8,7 @@ url: /websocket/connect_user
 ##### Image
 ```json
    {
+    "camera_id": int
     "image": base64
    }
 ``` 
@@ -16,6 +17,7 @@ url: /websocket/connect_user
  ```json
  {
     "type": "labels",
+    "camera_id": int,
     "labels": [
       {
         "name": str,
@@ -32,6 +34,7 @@ url: /websocket/connect_user
 ##### Warning
 ```json
 {
+  "camera_id": int,
   "type": "warning",
   "object_name": str
   "warning_type": "error" or "warning"
