@@ -1,5 +1,6 @@
 from logging import getLogger
 
+from numpy.ma.core import shape
 from pydantic import ValidationError
 
 from api.models.box import Labels
@@ -27,10 +28,10 @@ class NeuralConnector(WebsocketConnector):
     async def send_task(self, task: Task):
         if not (self.__task is None or isinstance(self.__task, Executed)):
             raise Exception("NeuralConnector every have task")
-
         self.__task = task
         self.__task.start_execution()
-        await self.websocket.send_json({"id": task.id, "camera_id": self.__task.camera_id, "image": str(task.image)})
+        await self.websocket.send_json(
+            {"id": task.id, "camera_id": self.__task.camera_id, "image": self.__task.image.decode('utf-8'), "shape": list(self.__task.shape)})
 
     def is_have_task(self):
         return self.__task is not None

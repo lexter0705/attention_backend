@@ -4,11 +4,11 @@ from pydantic import BaseModel
 
 
 class CameraMessage(BaseModel):
-    type: str = "url",
+    type: str
     camera_id: int
     camera_url: str
 
 
 class CameraStatus(BaseModel):
-    type: str = "status",
+    type: str
     status: Literal["active", "not_active"]

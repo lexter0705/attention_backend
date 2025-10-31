@@ -12,8 +12,8 @@ class TasksManager:
                 await connector.send_task(task)
                 self.__connectors.remove(connector)
                 self.__connectors.append(connector)
-                break
-        return task
+                return task
+        return None
 
     def add_connector(self, connector: NeuralConnector):
         if not isinstance(connector, NeuralConnector):

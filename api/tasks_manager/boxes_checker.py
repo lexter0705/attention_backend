@@ -13,8 +13,7 @@ class BoxesChecker:
         result = []
         for l in labels.boxes:
             if l.name in self.__config.error_labels:
-                print(l.name)
-                result.append(ErrorMessage(type="warning", object_name=l.name, warning_type="error"))
+                result.append(ErrorMessage(camera_id=labels.camera_id, type="warning", object_name=l.name, warning_type="error"))
             elif l.name in self.__config.warning_labels:
-                result.append(ErrorMessage(type="warning", object_name=l.name, warning_type="warning"))
+                result.append(ErrorMessage(camera_id=labels.camera_id, type="warning", object_name=l.name, warning_type="warning"))
         return result
