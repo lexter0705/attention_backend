@@ -1,3 +1,6 @@
+import asyncio
+
+from api.models.camera import Camera
 from api.tasks_manager import TasksManager
 from api.tasks_manager.boxes_checker import BoxesChecker
 from api.tasks_manager.connector import WebsocketConnector
@@ -22,7 +25,7 @@ class UserConnector(WebsocketConnector):
 
     async def on_start(self):
         data = await self.websocket.receive_json()
-
+        data = Camera.model_validate_json(data)
 
     async def update_socket(self):
         data = await self.websocket.receive_json()
