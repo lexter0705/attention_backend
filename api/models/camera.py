@@ -3,7 +3,7 @@ from typing import Literal
 from pydantic import BaseModel
 
 
-class Camera(BaseModel):
+class CameraMessage(BaseModel):
     type: str = "url",
     camera_id: int
     camera_url: str

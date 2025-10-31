@@ -5,3 +5,4 @@ SQLAlchemy~=2.0.41
 bcrypt~=4.3.0
 websockets
 uvicorn
+opencv-python
